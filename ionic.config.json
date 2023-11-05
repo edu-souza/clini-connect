@@ -1,0 +1,8 @@
+{
+  "name": "CliniConnect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "1a5d7f34"
+}
