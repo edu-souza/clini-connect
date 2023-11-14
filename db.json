@@ -1,0 +1,32 @@
+{
+  "pacientes": [
+    {
+      "id": 1,
+      "nome": "Eduardo de Souza",
+      "endereco": "Rua Dois Um",
+      "telefone": "048567867676",
+      "cpf": "76555463553"
+    },
+    {
+      "id": 2,
+      "nome": "Maria das Graças",
+      "endereco": "Rua Tres Tres",
+      "telefone": "7540963479067",
+      "cpf": "76555463553"
+    }
+  ],
+  "medicos": [
+    {
+      "id": 1,
+      "nome": "Manual da Costa Gomes",
+      "email": "manualgomes@mail.com",
+      "telefone": "6752986758923",
+      "endereco": "Rua Sete de Setembro",
+      "especialidade": "Cirurgião dentista",
+      "crm": "141515"
+    }
+  ],
+  "consultas": {
+    "id": 1
+  }
+}
