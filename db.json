@@ -27,6 +27,23 @@
     }
   ],
   "consultas": {
-    "id": 1
+    "id": 1,
+    "paciente": {
+      "id": 1,
+      "nome": "Eduardo de Souza",
+      "endereco": "Rua Dois Um",
+      "telefone": "048567867676",
+      "cpf": "76555463553"
+    },
+    "medico": {
+      "id": 1,
+      "nome": "Manual da Costa Gomes",
+      "email": "manualgomes@mail.com",
+      "telefone": "6752986758923",
+      "endereco": "Rua Sete de Setembro",
+      "especialidade": "Cirurgião dentista",
+      "crm": "141515"
+    },
+    "tipo": "Retorno"
   }
 }

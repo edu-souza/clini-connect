@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PacienteInterface } from './types/pacientes.types';
-import { PacienteService } from './service/pacientes.service';
 import {
   AlertController,
   ToastController,
@@ -8,36 +6,38 @@ import {
   ViewWillEnter,
   ViewWillLeave,
 } from '@ionic/angular';
+import { MedicoInterface } from './types/medicos.types';
+import { MedicoService } from './service/medicos.service';
 
 @Component({
-  selector: 'app-pacientes',
-  templateUrl: './pacientes.component.html',
-  styleUrls: ['./pacientes.component.scss'],
+  selector: 'app-medicos',
+  templateUrl: './medicos.component.html',
+  styleUrls: ['./medicos.component.scss'],
 })
-export class PacientesComponent  implements OnInit,ViewWillEnter {
+export class MedicosComponent  implements OnInit,ViewWillEnter {
 
-  pacientes: PacienteInterface[] = [];
+  medicos: MedicoInterface[] = [];
 
   constructor(
     private alertController: AlertController,
     private toastController: ToastController,
-    private PacienteService: PacienteService
+    private MedicoService: MedicoService
   ) { }
 
   ionViewWillEnter() {
-    this.listaPacientes();
+    this.listaMedicos();
     console.log('ionViewWillEnter');
   }
 
   ngOnInit() {
-    this.listaPacientes()
+    this.listaMedicos()
   }
 
-  listaPacientes() {
-    const observable = this.PacienteService.getPacientes();
+  listaMedicos() {
+    const observable = this.MedicoService.getMedicos();
     observable.subscribe(
       (dados) => {
-        this.pacientes = dados;
+        this.medicos = dados;
       },
       (erro) => {
         console.error(erro);
@@ -53,3 +53,4 @@ export class PacientesComponent  implements OnInit,ViewWillEnter {
     );
   }
 }
+

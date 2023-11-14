@@ -26,12 +26,12 @@ export class PacienteService {
     return this.httpClient.get<PacienteInterface>(`${this.url}/${id}`);
   }
 
-  private addPaciente(autor: PacienteInterface)  {
-    return this.httpClient.post(this.url, autor);
+  private addPaciente(paciente: PacienteInterface)  {
+    return this.httpClient.post(this.url, paciente);
   }
 
-  private updPaciente(autor: PacienteInterface) {
-    return this.httpClient.put(`${this.url}/${autor.id}`, autor);
+  private updPaciente(paciente: PacienteInterface) {
+    return this.httpClient.put(`${this.url}/${paciente.id}`, paciente);
   }
 
   salvar(paciente: PacienteInterface) {
