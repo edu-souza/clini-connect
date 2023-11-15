@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsultasInterface } from './types/consultas.types';
-import { ConsultasService } from './service/consultas.service';
+import { ConsultasInterface } from '../types/consultas.types';
+import { ConsultasService } from '../service/consultas.service';
 import {
   AlertController,
   ToastController,
@@ -10,11 +10,12 @@ import {
 } from '@ionic/angular';
 
 @Component({
-  selector: 'app-consultas',
-  templateUrl: './consultas.component.html',
-  styleUrls: ['./consultas.component.scss'],
+  selector: 'app-consultas-lista',
+  templateUrl: './consultas-lista.component.html',
+  styleUrls: ['./consultas-lista.component.scss'],
 })
-export class ConsultasComponent  implements OnInit,ViewWillEnter {
+export class ConsultasListaComponent  implements OnInit {
+  
   consultas: ConsultasInterface[] = [];
 
   constructor(
@@ -51,3 +52,4 @@ export class ConsultasComponent  implements OnInit,ViewWillEnter {
     );
   }
 }
+

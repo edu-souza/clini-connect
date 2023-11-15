@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { ConsultasComponent } from './consultas.component';
+import { ConsultasListaComponent } from './consultas-lista/consultas-lista.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [IonicModule, CommonModule],
-  declarations: [ConsultasComponent],
-  exports: [ConsultasComponent],
+  declarations: [ConsultasListaComponent],
+  exports: [ConsultasListaComponent],
 })
 export class ConsultasModule {}
