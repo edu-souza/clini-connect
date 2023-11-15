@@ -4,8 +4,8 @@ import { PacienteInterface } from "src/app/pacientes/types/pacientes.types";
 
 export interface ConsultasInterface {
   id: number;
-  paciente: PacienteInterface[];
-  medico: MedicoInterface[];
+  paciente: PacienteInterface;
+  medico: MedicoInterface;
   data: Date;
   hora: Time;
   tipo: string
