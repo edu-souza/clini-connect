@@ -1,0 +1,1 @@
+// Atualizar listas quando a rota é acessada

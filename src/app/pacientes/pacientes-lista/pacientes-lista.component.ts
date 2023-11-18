@@ -4,9 +4,6 @@ import { PacienteService } from '../service/pacientes.service';
 import {
   AlertController,
   ToastController,
-  ViewDidLeave,
-  ViewWillEnter,
-  ViewWillLeave,
 } from '@ionic/angular';
 @Component({
   selector: 'app-pacientes-lista',
@@ -17,14 +14,12 @@ export class PacientesListaComponent  implements OnInit {
   pacientes: PacienteInterface[] = [];
 
   constructor(
-    private alertController: AlertController,
     private toastController: ToastController,
     private PacienteService: PacienteService
   ) { }
 
   ionViewWillEnter() {
     this.listaPacientes();
-    console.log('ionViewWillEnter');
   }
 
   ngOnInit() {

@@ -1,9 +1,12 @@
+import { especialidadeEnum } from "./especialidade.enum";
+
 export interface MedicoInterface {
   id: number;
   nome: string;
   email: string;
-  telefone: string;
+  dataAdmissao: Date;
+  turno: string;
   endereco: string;
-  especialidade: string;
+  especialidade: especialidadeEnum;
   crm: string;
 }
