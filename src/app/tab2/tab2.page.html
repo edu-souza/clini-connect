@@ -3,12 +3,12 @@
     <ion-title>
       Médicos
     </ion-title>
-    <ion-fab vertical="top" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
   </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button [routerLink]="['cadastromedicos']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-header>
 
 <ion-content [fullscreen]="true">

@@ -1,5 +1,5 @@
 export enum especialidadeEnum {
-  Dentista = 'D',
-  Clinico = 'C',
-  Pediatra = 'P'
+  Cardiologia = 'C',
+  Ortopedia = 'O',
+  Pediatria = 'P'
 }

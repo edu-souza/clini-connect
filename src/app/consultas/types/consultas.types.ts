@@ -8,5 +8,6 @@ export interface ConsultasInterface {
   medico: MedicoInterface;
   data: Date;
   hora: Time;
-  tipo: string
+  tipo: string;
+  observacao: string;
 }

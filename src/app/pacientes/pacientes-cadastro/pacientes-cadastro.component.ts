@@ -40,8 +40,20 @@ export class PacientesCadastroComponent  implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(150),
       ]),
-      endereco: new FormControl(paciente ?.endereco || '', [])
-      // Add valids dos demais campos
+      endereco: new FormControl(paciente ?.endereco || '', [
+        Validators.required,
+        Validators.minLength(20),
+        Validators.maxLength(150),
+      ]),
+      dataNascto: new FormControl(
+        paciente?.dataNascto || new Date().toISOString()
+      ),
+      cidade: new FormControl(paciente?.cidade || '', [
+        Validators.required,
+      ]),
+      sexo: new FormControl(paciente?.cidade || '', [
+        Validators.required,
+      ])
     });
   }
 
@@ -72,5 +84,17 @@ export class PacientesCadastroComponent  implements OnInit {
 
   get endereco() {
     return this.pacientesForm.get('endereco');
+  }
+
+  get dataNascto() {
+    return this.pacientesForm.get('dataNascto');
+  }
+
+  get cidade() {
+    return this.pacientesForm.get('cidade');
+  }
+
+  get sexo() {
+    return this.pacientesForm.get('sexo');
   }
 }

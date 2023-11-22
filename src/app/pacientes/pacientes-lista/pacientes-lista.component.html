@@ -1,6 +1,6 @@
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let paciente of pacientes">
+    <ion-item *ngFor="let paciente of pacientes" class="ion-item-flex-end">
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -19,13 +19,13 @@
         </ion-row>
       </ion-grid>
 
-      <ion-buttons slot="end">
-        <ion-button>
+      <ion-buttons slot="end" class="ion-buttons-fab">
+        <ion-fab-button [routerLink]="['edicao', paciente.id]">
           <ion-icon name="create-outline"></ion-icon>
-        </ion-button>
-        <ion-button>
+        </ion-fab-button>
+        <ion-fab-button>
           <ion-icon name="trash-outline"></ion-icon>
-        </ion-button>
+        </ion-fab-button>
       </ion-buttons>
     </ion-item>
   </ion-list>

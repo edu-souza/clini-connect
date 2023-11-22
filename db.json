@@ -1,12 +1,20 @@
 {
   "pacientes": [
     {
-      "id": 1,
       "nome": "Eduardo de Souza",
-      "sexo": "M",
+      "endereco": "Rua Doisdois odsi dosi dos",
       "dataNascto": "2000-04-28T20:30:34.363-03:00",
       "cidade": "Criciuma",
-      "endereco": "Rua Dois Um"
+      "sexo": "Criciuma",
+      "id": 1
+    },
+    {
+      "nome": "Pedro da ",
+      "endereco": "Rua Dois  bla bla bla",
+      "dataNascto": "1974-07-10T13:54:00",
+      "cidade": "apple",
+      "sexo": "apple",
+      "id": 2
     }
   ],
   "medicos": [
@@ -18,6 +26,14 @@
       "endereco": "Rua Sete de Setembro",
       "especialidade": "Cirurgião dentista",
       "crm": "141515"
+    },
+    {
+      "nome": "Dr. Absha Mallutiz",
+      "dataAdmissao": "2023-11-19T15:20:46.105Z",
+      "crm": "12332",
+      "turno": "D",
+      "especialidade": "O",
+      "id": 2
     }
   ],
   "consultas": [

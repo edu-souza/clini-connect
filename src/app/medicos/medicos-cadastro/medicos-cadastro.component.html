@@ -1,3 +1,90 @@
-<p>
-  medicos-cadastro works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Médicos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="medicosForm">
+    <ion-item>
+      <ion-label position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text"> </ion-input>
+      <ion-text color="danger" *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)">
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data de admissão:</ion-label>
+
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" formControlName="dataAdmissao" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+      <ion-text color="danger" *ngIf="dataAdmissao?.invalid && (dataAdmissao?.dirty || dataAdmissao?.touched)">
+        <small *ngIf="dataAdmissao?.errors?.['required']">
+          A data de nascimento é obrigatória
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Turno</ion-label>
+      </ion-list-header>
+      <ion-radio-group name="turno" formControlName="turno">
+        <ion-item>
+          <ion-radio slot="start" value="D">Diurno</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio slot="start" value="N">Noturno</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-item>
+      <ion-select formControlName="especialidade" label="Especialidade" placeholder="Selecione uma especialidade">
+        <ion-select-option value="C">Cardiologia</ion-select-option>
+        <ion-select-option value="O">Ortopedia</ion-select-option>
+        <ion-select-option value="P">Pediatria</ion-select-option>
+      </ion-select>
+      <ion-text color=" danger" *ngIf="especialidade?.invalid && (especialidade?.dirty || especialidade?.touched)">
+        <small *ngIf="especialidade?.errors?.['required']">
+          A especialidade é obrigatória
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">CRM: </ion-label>
+      <ion-input formControlName="crm" type="text"> </ion-input>
+      <ion-text color="danger" *ngIf="crm?.invalid && (crm?.dirty || crm?.touched)"></ion-text>
+    </ion-item>
+    <ion-text color="danger" *ngIf="crm?.invalid && (crm?.dirty || crm?.touched)">
+      <small *ngIf="crm?.errors?.['required']">
+        O CRM é obrigatório
+      </small>
+    </ion-text>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" [disabled]="!medicosForm.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>
