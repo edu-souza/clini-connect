@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ConsultasInterface } from '../types/consultas.types';
+import { ConsultaInterface } from '../types/consultas.types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConsultasService {
+export class ConsultaService {
 
   private url = 'http://localhost:3000/consultas';
 
@@ -14,27 +14,27 @@ export class ConsultasService {
     private httpClient: HttpClient
   ) {}
 
-  getConsultas(): Observable<ConsultasInterface[]> {
-    return this.httpClient.get<ConsultasInterface[]>(this.url);
+  getConsultas(): Observable<ConsultaInterface[]> {
+    return this.httpClient.get<ConsultaInterface[]>(this.url);
   }
 
   excluir(id: number): Observable<Object> {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
 
-  getMedico(id: number): Observable<ConsultasInterface> {
-    return this.httpClient.get<ConsultasInterface>(`${this.url}/${id}`);
+  getMedico(id: number): Observable<ConsultaInterface> {
+    return this.httpClient.get<ConsultaInterface>(`${this.url}/${id}`);
   }
 
-  private addConsulta(consulta: ConsultasInterface)  {
+  private addConsulta(consulta: ConsultaInterface)  {
     return this.httpClient.post(this.url, consulta);
   }
 
-  private updConsulta(consulta: ConsultasInterface) {
+  private updConsulta(consulta: ConsultaInterface) {
     return this.httpClient.put(`${this.url}/${consulta.id}`, consulta);
   }
 
-  salvar(consulta: ConsultasInterface) {
+  salvar(consulta: ConsultaInterface) {
     if(consulta.id) {
       return this.updConsulta(consulta);
     } else {

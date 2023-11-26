@@ -1,3 +1,82 @@
-<p>
-  consultas-cadastro works!
-</p>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Consultas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="consultasForm">
+    <ion-item>
+      <ion-select formControlName="paciente" label="Paciente" placeholder="Selecione o paciente">
+        <ion-select-option value="1">Paciente 1</ion-select-option>
+        <ion-select-option value="2">Paciente 2</ion-select-option>
+      </ion-select>
+      <ion-text color=" danger" *ngIf="paciente?.invalid && (paciente?.dirty || paciente?.touched)">
+        <small *ngIf="paciente?.errors?.['required']">
+          É obrigatório escolher um paciente
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-select formControlName="medico" label="Médico" placeholder="Selecione o médico">
+        <ion-select-option value="1">Médico 1</ion-select-option>
+        <ion-select-option value="2">Médico 2</ion-select-option>
+      </ion-select>
+      <ion-text color=" danger" *ngIf="medico?.invalid && (medico?.dirty || medico?.touched)">
+        <small *ngIf="medico?.errors?.['required']">
+          É obrigatório escolher um médico
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Data da consulta:</ion-label>
+
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" formControlName="dataConsulta" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+      <ion-text color="danger" *ngIf="data?.invalid && (data?.dirty || data?.touched)">
+        <small *ngIf="data?.errors?.['required']">
+          A data da consulta é obrigatória
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Horário</ion-label>
+      <ion-datetime id="hora" formControlName="hora" display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Tipo</ion-label>
+      </ion-list-header>
+      <ion-radio-group name="tipo" formControlName="tipo">
+        <ion-item>
+          <ion-radio slot="start" value="C">Consulta</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio slot="start" value="R">Retorno</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-item>
+      <ion-label position="floating">Observação: </ion-label>
+      <ion-input formControlName="observacao" type="text"> </ion-input>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="salvar()" [disabled]="!consultasForm.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

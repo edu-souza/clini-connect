@@ -52,5 +52,43 @@ export class MedicosListaComponent  implements OnInit {
       }
     );
   }
+
+  confirmarExclusao(medico: MedicoInterface) {
+    this.alertController
+      .create({
+        header: 'Confirmação de exclusão',
+        message: `Deseja excluir o registro?`,
+        buttons: [
+          {
+            text: 'Sim',
+            handler: () => this.excluir(medico),
+          },
+          {
+            text: 'Não',
+          },
+        ],
+      })
+      .then((alerta) => alerta.present());
+  }
+
+  private excluir(medico: MedicoInterface) {
+    if (medico.id) {
+      this.MedicoService.excluir(medico.id).subscribe(
+        () => this.listaMedicos(),
+        (erro) => {
+          console.error(erro);
+          this.toastController
+            .create({
+              message: `Não foi possível excluir o registro`,
+              duration: 5000,
+              keyboardClose: true,
+              color: 'danger',
+            })
+            .then((t) => t.present());
+        }
+      );
+    }
+  }
+
 }
 

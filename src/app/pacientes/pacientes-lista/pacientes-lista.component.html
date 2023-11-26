@@ -23,7 +23,7 @@
         <ion-fab-button [routerLink]="['edicao', paciente.id]">
           <ion-icon name="create-outline"></ion-icon>
         </ion-fab-button>
-        <ion-fab-button>
+        <ion-fab-button (click)="confirmarExclusao(paciente)">
           <ion-icon name="trash-outline"></ion-icon>
         </ion-fab-button>
       </ion-buttons>

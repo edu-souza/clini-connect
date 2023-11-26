@@ -42,7 +42,7 @@ export class PacientesCadastroComponent  implements OnInit {
       ]),
       endereco: new FormControl(paciente ?.endereco || '', [
         Validators.required,
-        Validators.minLength(20),
+        Validators.minLength(1),
         Validators.maxLength(150),
       ]),
       dataNascto: new FormControl(

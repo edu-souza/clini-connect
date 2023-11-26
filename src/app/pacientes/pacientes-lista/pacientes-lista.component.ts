@@ -15,7 +15,8 @@ export class PacientesListaComponent  implements OnInit {
 
   constructor(
     private toastController: ToastController,
-    private PacienteService: PacienteService
+    private PacienteService: PacienteService,
+    private alertController: AlertController,
   ) { }
 
   ionViewWillEnter() {
@@ -44,5 +45,42 @@ export class PacientesListaComponent  implements OnInit {
           .then((t) => t.present());
       }
     );
+  }
+
+  confirmarExclusao(paciente: PacienteInterface) {
+    this.alertController
+      .create({
+        header: 'Confirmação de exclusão',
+        message: `Deseja excluir o registro?`,
+        buttons: [
+          {
+            text: 'Sim',
+            handler: () => this.excluir(paciente),
+          },
+          {
+            text: 'Não',
+          },
+        ],
+      })
+      .then((alerta) => alerta.present());
+  }
+
+  private excluir(paciente: PacienteInterface) {
+    if (paciente.id) {
+      this.PacienteService.excluir(paciente.id).subscribe(
+        () => this.listaPacientes(),
+        (erro) => {
+          console.error(erro);
+          this.toastController
+            .create({
+              message: `Não foi possível excluir o registro`,
+              duration: 5000,
+              keyboardClose: true,
+              color: 'danger',
+            })
+            .then((t) => t.present());
+        }
+      );
+    }
   }
 }

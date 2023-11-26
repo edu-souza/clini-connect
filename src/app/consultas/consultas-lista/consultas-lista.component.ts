@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConsultasInterface } from '../types/consultas.types';
-import { ConsultasService } from '../service/consultas.service';
+import { ConsultaInterface } from '../types/consultas.types';
+import { ConsultaService } from '../service/consultas.service';
 import {
   AlertController,
   ToastController,
@@ -16,12 +16,12 @@ import {
 })
 export class ConsultasListaComponent  implements OnInit {
   
-  consultas: ConsultasInterface[] = [];
+  consultas: ConsultaInterface[] = [];
 
   constructor(
     private alertController: AlertController,
     private toastController: ToastController,
-    private ConsultasService: ConsultasService
+    private ConsultaService: ConsultaService
   ) { }
 
   ionViewWillEnter() {
@@ -33,7 +33,7 @@ export class ConsultasListaComponent  implements OnInit {
   }
 
   listaConsultas() {
-    const observable = this.ConsultasService.getConsultas();
+    const observable = this.ConsultaService.getConsultas();
     observable.subscribe(
       (dados) => {
         this.consultas = dados;
@@ -50,6 +50,43 @@ export class ConsultasListaComponent  implements OnInit {
           .then((t) => t.present());
       }
     );
+  }
+
+  confirmarExclusao(consulta: ConsultaInterface) {
+    this.alertController
+      .create({
+        header: 'Confirmação de exclusão',
+        message: `Deseja excluir o registro?`,
+        buttons: [
+          {
+            text: 'Sim',
+            handler: () => this.excluir(consulta),
+          },
+          {
+            text: 'Não',
+          },
+        ],
+      })
+      .then((alerta) => alerta.present());
+  }
+
+  private excluir(consulta: ConsultaInterface) {
+    if (consulta.id) {
+      this.ConsultaService.excluir(consulta.id).subscribe(
+        () => this.listaConsultas(),
+        (erro) => {
+          console.error(erro);
+          this.toastController
+            .create({
+              message: `Não foi possível excluir o registro`,
+              duration: 5000,
+              keyboardClose: true,
+              color: 'danger',
+            })
+            .then((t) => t.present());
+        }
+      );
+    }
   }
 }
 
