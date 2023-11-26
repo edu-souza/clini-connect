@@ -9,8 +9,7 @@
 <ion-content>
   <form [formGroup]="medicosForm">
     <ion-item>
-      <ion-label position="floating">Nome: </ion-label>
-      <ion-input formControlName="nome" type="text"> </ion-input>
+      <ion-input label="Nome" formControlName="nome" type="text"> </ion-input>
       <ion-text color="danger" *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)">
         <small *ngIf="nome?.errors?.['required']">
           O campo nome é obrigatório
@@ -71,8 +70,7 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">CRM: </ion-label>
-      <ion-input formControlName="crm" type="text"> </ion-input>
+      <ion-input label="CRM" formControlName="crm" type="text"> </ion-input>
       <ion-text color="danger" *ngIf="crm?.invalid && (crm?.dirty || crm?.touched)"></ion-text>
     </ion-item>
     <ion-text color="danger" *ngIf="crm?.invalid && (crm?.dirty || crm?.touched)">

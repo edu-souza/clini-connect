@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ConsultaInterface } from '../types/consultas.types';
 import { ConsultaService } from '../service/consultas.service';
+import { MedicoService } from 'src/app/medicos/service/medicos.service';
+import { MedicoInterface } from 'src/app/medicos/types/medicos.types';
 
 @Component({
   selector: 'app-consultas-cadastro',
@@ -14,14 +16,17 @@ import { ConsultaService } from '../service/consultas.service';
 export class ConsultasCadastroComponent  implements OnInit {
   consultaId: number | null;
   consultasForm: FormGroup;
+  medicos: MedicoInterface[] = [];
 
   constructor(
     private toastController: ToastController,
     private activatedRoute: ActivatedRoute,
     private ConsultaService: ConsultaService,
+    private MedicoService: MedicoService,
     private router: Router){
     this.consultaId = null;
     this.consultasForm = this.createForm();
+
    }
 
    ngOnInit() {
@@ -32,6 +37,7 @@ export class ConsultasCadastroComponent  implements OnInit {
         this.consultasForm = this.createForm(consulta);
       });
     }
+    this.carregaMedicos()
   }
 
   private createForm(consulta ? : ConsultaInterface) {
@@ -50,6 +56,8 @@ export class ConsultasCadastroComponent  implements OnInit {
       ),
       tipo: new FormControl(consulta?.tipo || '', [
         Validators.required,
+      ]),
+      observacao: new FormControl(consulta?.observacao || '', [
       ])
     });
   }
@@ -66,6 +74,26 @@ export class ConsultasCadastroComponent  implements OnInit {
         this.toastController
           .create({
             message: `Não foi possível salvar o registro`,
+            duration: 5000,
+            keyboardClose: true,
+            color: 'danger',
+          })
+          .then((t) => t.present());
+      }
+    );
+  }
+
+  carregaMedicos() {
+    const observable = this.MedicoService.getMedicos();
+    observable.subscribe(
+      (dados) => {
+        this.medicos = dados;
+      },
+      (erro) => {
+        console.error(erro);
+        this.toastController
+          .create({
+            message: `Erro ao listar registros`,
             duration: 5000,
             keyboardClose: true,
             color: 'danger',
@@ -93,5 +121,9 @@ export class ConsultasCadastroComponent  implements OnInit {
 
   get tipo() {
     return this.consultasForm.get('tipo');
+  }
+  
+  get observacao() {
+    return this.consultasForm.get('observacao');
   }
 }

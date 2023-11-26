@@ -22,8 +22,7 @@
 
     <ion-item>
       <ion-select formControlName="medico" label="Médico" placeholder="Selecione o médico">
-        <ion-select-option value="1">Médico 1</ion-select-option>
-        <ion-select-option value="2">Médico 2</ion-select-option>
+        <ion-select-option *ngFor="let medico of medicos" [value]="medico.id">{{ medico.nome }}</ion-select-option>
       </ion-select>
       <ion-text color=" danger" *ngIf="medico?.invalid && (medico?.dirty || medico?.touched)">
         <small *ngIf="medico?.errors?.['required']">
@@ -39,7 +38,7 @@
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
-          <ion-datetime id="datetime" formControlName="dataConsulta" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+          <ion-datetime id="datetime" formControlName="data" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
         </ng-template>
       </ion-modal>
       <ion-text color="danger" *ngIf="data?.invalid && (data?.dirty || data?.touched)">
@@ -49,10 +48,10 @@
       </ion-text>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label>Horário</ion-label>
       <ion-datetime id="hora" formControlName="hora" display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
-    </ion-item>
+    </ion-item> -->
 
     <ion-list>
       <ion-list-header>
@@ -69,8 +68,7 @@
     </ion-list>
 
     <ion-item>
-      <ion-label position="floating">Observação: </ion-label>
-      <ion-input formControlName="observacao" type="text"> </ion-input>
+      <ion-input label="Observação" formControlName="observacao" type="text"> </ion-input>
     </ion-item>
 
     <ion-fab vertical="bottom" horizontal="end">

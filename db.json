@@ -7,14 +7,6 @@
       "cidade": "Criciuma",
       "sexo": "Criciuma",
       "id": 1
-    },
-    {
-      "nome": "Pedro da ",
-      "endereco": "Rua Dois  bla bla bla",
-      "dataNascto": "1974-07-10T13:54:00",
-      "cidade": "apple",
-      "sexo": "apple",
-      "id": 2
     }
   ],
   "medicos": [
@@ -36,5 +28,14 @@
       "id": 2
     }
   ],
-  "consultas": []
+  "consultas": [
+    {
+      "medico": "1",
+      "paciente": "1",
+      "data": "2023-11-26T21:22:48.406Z",
+      "hora": "2023-11-26T21:22:48.406Z",
+      "tipo": "C",
+      "id": 1
+    }
+  ]
 }

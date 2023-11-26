@@ -17,10 +17,20 @@
             <ion-label>CRM : {{ consulta.tipo }}</ion-label>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Data: {{ consulta.data | date: 'dd/MM/yyyy' }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Hora: {{ consulta.data | date: 'HH:mm' }}</ion-label>
+          </ion-col>
+        </ion-row>
       </ion-grid>
 
       <ion-buttons slot="end" class="ion-buttons-fab">
-        <ion-fab-button>
+        <ion-fab-button [routerLink]="['edicao', consulta.id]">
           <ion-icon name="create-outline"></ion-icon>
         </ion-fab-button>
         <ion-fab-button (click)="confirmarExclusao(consulta)">

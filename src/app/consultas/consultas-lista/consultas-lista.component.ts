@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultaInterface } from '../types/consultas.types';
 import { ConsultaService } from '../service/consultas.service';
+import { MedicoInterface } from 'src/app/medicos/types/medicos.types';
+import { DatePipe } from '@angular/common';
 import {
   AlertController,
   ToastController,
@@ -21,7 +23,8 @@ export class ConsultasListaComponent  implements OnInit {
   constructor(
     private alertController: AlertController,
     private toastController: ToastController,
-    private ConsultaService: ConsultaService
+    private ConsultaService: ConsultaService,
+    private datePipe: DatePipe
   ) { }
 
   ionViewWillEnter() {
