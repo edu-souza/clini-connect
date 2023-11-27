@@ -4,21 +4,61 @@
       "nome": "Eduardo de Souza",
       "endereco": "Rua Doisdois odsi dosi dos",
       "dataNascto": "2000-04-28T20:30:34.363-03:00",
-      "cidade": "Criciuma",
-      "sexo": "Criciuma",
+      "cidade": "apple",
+      "sexo": "M",
       "id": 1
+    },
+    {
+      "nome": "Cintia",
+      "endereco": "Sanga da Toca",
+      "dataNascto": "2023-11-27T00:40:33.011Z",
+      "cidade": "banana",
+      "sexo": "F",
+      "id": 2
+    },
+    {
+      "nome": "teste",
+      "endereco": "awrawrawra",
+      "dataNascto": "2023-11-14T01:27:00",
+      "cidade": "orange",
+      "sexo": "M",
+      "id": 3
     }
   ],
   "medicos": [
     {
-      "id": 1,
       "nome": "Manual da Costa Gomes",
-      "email": "manualgomes@mail.com",
-      "telefone": "6752986758923",
-      "endereco": "Rua Sete de Setembro",
-      "especialidade": "Cirurgião dentista",
-      "crm": "141515"
+      "dataAdmissao": "2023-11-27T00:59:52.804Z",
+      "crm": "141515",
+      "turno": "N",
+      "especialidade": "O",
+      "id": 1
     }
   ],
-  "consultas": []
+  "consultas": [
+    {
+      "medico": {
+        "id": 1,
+        "nome": "Manual da Costa Gomes",
+        "email": "manualgomes@mail.com",
+        "telefone": "6752986758923",
+        "endereco": "Rua Sete de Setembro",
+        "especialidade": "Cirurgião dentista",
+        "crm": "141515"
+      },
+      "paciente": {
+        "nome": "Cintia",
+        "endereco": "Sanga da Toca",
+        "dataNascto": "2023-11-27T00:40:33.011Z",
+        "cidade": "banana",
+        "sexo": "F",
+        "id": 2
+      },
+      "data": "2023-11-30T00:41:00",
+      "hora": "2023-11-27T00:41:29.088Z",
+      "tipo": "C",
+      "observacao": "jfjfjhfjf",
+      "id": 1
+    }
+  ]
 }

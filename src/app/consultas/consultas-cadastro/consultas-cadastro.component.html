@@ -47,10 +47,22 @@
       </ion-text>
     </ion-item>
 
-    <!-- <ion-item>
-      <ion-label>Horário</ion-label>
-      <ion-datetime id="hora" formControlName="hora" display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
-    </ion-item> -->
+    <ion-item>
+      <ion-label position="floating">Horário:</ion-label>
+
+      <ion-datetime-button datetime="hora"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="hora" formControlName="hora" display-format="HH:mm" picker-format="HH:mm" presentation="time" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+      <ion-text color="danger" *ngIf="hora?.invalid && (hora?.dirty || hora?.touched)">
+        <small *ngIf="hora?.errors?.['required']">
+          A hora da consulta é obrigatória
+        </small>
+      </ion-text>
+    </ion-item>
 
     <ion-list>
       <ion-list-header>
