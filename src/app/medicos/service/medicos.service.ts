@@ -26,6 +26,10 @@ export class MedicoService {
     return this.httpClient.get<MedicoInterface>(`${this.url}/${id}`);
   }
 
+  getMedicoById(id: number): Observable<MedicoInterface> {
+    return this.httpClient.get<MedicoInterface>(`${this.url}/${id}`);
+  }
+
   private addMedico(autor: MedicoInterface)  {
     return this.httpClient.post(this.url, autor);
   }

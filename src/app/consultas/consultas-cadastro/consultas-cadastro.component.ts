@@ -5,6 +5,8 @@ import { ToastController } from '@ionic/angular';
 import { ConsultaInterface } from '../types/consultas.types';
 import { ConsultaService } from '../service/consultas.service';
 import { MedicoService } from 'src/app/medicos/service/medicos.service';
+import { PacienteService } from 'src/app/pacientes/service/pacientes.service';
+import { PacienteInterface } from 'src/app/pacientes/types/pacientes.types';
 import { MedicoInterface } from 'src/app/medicos/types/medicos.types';
 
 @Component({
@@ -17,16 +19,17 @@ export class ConsultasCadastroComponent  implements OnInit {
   consultaId: number | null;
   consultasForm: FormGroup;
   medicos: MedicoInterface[] = [];
+  pacientes: PacienteInterface[] = [];
 
   constructor(
     private toastController: ToastController,
     private activatedRoute: ActivatedRoute,
     private ConsultaService: ConsultaService,
     private MedicoService: MedicoService,
+    private PacienteService: PacienteService,
     private router: Router){
     this.consultaId = null;
     this.consultasForm = this.createForm();
-
    }
 
    ngOnInit() {
@@ -38,6 +41,7 @@ export class ConsultasCadastroComponent  implements OnInit {
       });
     }
     this.carregaMedicos()
+    this.carregaPacientes()
   }
 
   private createForm(consulta ? : ConsultaInterface) {
@@ -62,13 +66,24 @@ export class ConsultasCadastroComponent  implements OnInit {
     });
   }
 
-  salvar() {
+  async salvar() {
+    const medicoId = this.consultasForm.value.medico;
+    const pacienteId = this.consultasForm.value.paciente;
+  
+    const [medico, paciente] = await Promise.all([
+      this.MedicoService.getMedicoById(medicoId).toPromise(),
+      this.PacienteService.getPacienteById(pacienteId).toPromise()
+    ]);
+  
     const consulta: ConsultaInterface = {
       ...this.consultasForm.value,
       id: this.consultaId,
+      medico: medico,
+      paciente: paciente
     };
+  
     this.ConsultaService.salvar(consulta).subscribe(
-      () => this.router.navigate(['tabs/tab2']),
+      () => this.router.navigate(['tabs/tab1']),
       (erro) => {
         console.error(erro);
         this.toastController
@@ -88,6 +103,26 @@ export class ConsultasCadastroComponent  implements OnInit {
     observable.subscribe(
       (dados) => {
         this.medicos = dados;
+      },
+      (erro) => {
+        console.error(erro);
+        this.toastController
+          .create({
+            message: `Erro ao listar registros`,
+            duration: 5000,
+            keyboardClose: true,
+            color: 'danger',
+          })
+          .then((t) => t.present());
+      }
+    );
+  }
+
+  carregaPacientes() {
+    const observable = this.PacienteService.getPacientes();
+    observable.subscribe(
+      (dados) => {
+        this.pacientes = dados;
       },
       (erro) => {
         console.error(erro);

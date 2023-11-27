@@ -10,8 +10,7 @@
   <form [formGroup]="consultasForm">
     <ion-item>
       <ion-select formControlName="paciente" label="Paciente" placeholder="Selecione o paciente">
-        <ion-select-option value="1">Paciente 1</ion-select-option>
-        <ion-select-option value="2">Paciente 2</ion-select-option>
+        <ion-select-option *ngFor="let paciente of pacientes" [value]="paciente.id">{{ paciente.nome }}</ion-select-option>
       </ion-select>
       <ion-text color=" danger" *ngIf="paciente?.invalid && (paciente?.dirty || paciente?.touched)">
         <small *ngIf="paciente?.errors?.['required']">

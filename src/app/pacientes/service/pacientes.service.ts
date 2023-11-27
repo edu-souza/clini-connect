@@ -26,6 +26,10 @@ export class PacienteService {
     return this.httpClient.get<PacienteInterface>(`${this.url}/${id}`);
   }
 
+  getPacienteById(id: number): Observable<PacienteInterface> {
+    return this.httpClient.get<PacienteInterface>(`${this.url}/${id}`);
+  }
+
   private addPaciente(paciente: PacienteInterface)  {
     return this.httpClient.post(this.url, paciente);
   }
