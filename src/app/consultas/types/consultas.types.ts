@@ -7,7 +7,7 @@ export interface ConsultaInterface {
   paciente: PacienteInterface;
   medico: MedicoInterface;
   data: Date;
-  hora: Time;
+  hora: string ;
   tipo: string;
   observacao: string;
 }

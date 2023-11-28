@@ -8,6 +8,7 @@ import {
 } from '@ionic/angular';
 import { MedicoInterface } from '../types/medicos.types';
 import { MedicoService } from '../service/medicos.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-medicos-lista',
@@ -21,7 +22,8 @@ export class MedicosListaComponent  implements OnInit {
   constructor(
     private alertController: AlertController,
     private toastController: ToastController,
-    private MedicoService: MedicoService
+    private MedicoService: MedicoService,
+    private datePipe: DatePipe
   ) { }
 
   ionViewWillEnter() {

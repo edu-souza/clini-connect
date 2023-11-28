@@ -15,14 +15,6 @@
       "cidade": "banana",
       "sexo": "F",
       "id": 2
-    },
-    {
-      "nome": "teste",
-      "endereco": "awrawrawra",
-      "dataNascto": "2023-11-14T01:27:00",
-      "cidade": "orange",
-      "sexo": "M",
-      "id": 3
     }
   ],
   "medicos": [

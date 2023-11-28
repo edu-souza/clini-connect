@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteInterface } from '../types/pacientes.types';
 import { PacienteService } from '../service/pacientes.service';
+import { DatePipe } from '@angular/common';
 import {
   AlertController,
   ToastController,
@@ -17,6 +18,7 @@ export class PacientesListaComponent  implements OnInit {
     private toastController: ToastController,
     private PacienteService: PacienteService,
     private alertController: AlertController,
+    private datePipe: DatePipe
   ) { }
 
   ionViewWillEnter() {
