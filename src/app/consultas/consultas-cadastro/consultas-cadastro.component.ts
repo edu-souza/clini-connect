@@ -21,7 +21,7 @@ export class ConsultasCadastroComponent  implements OnInit {
   medicos: MedicoInterface[] = [];
   pacientes: PacienteInterface[] = [];
 
-  constructor(
+	constructor(
     private toastController: ToastController,
     private activatedRoute: ActivatedRoute,
     private ConsultaService: ConsultaService,
@@ -31,17 +31,39 @@ export class ConsultasCadastroComponent  implements OnInit {
     this.consultaId = null;
     this.consultasForm = this.createForm();
    }
+	
+	private setFormValues(consulta: ConsultaInterface) {
+		this.consultasForm.patchValue({
+			medico: consulta.medico.id,
+			paciente: consulta.paciente.id,
+			data: consulta.data,
+			hora: consulta.hora,
+			tipo: consulta.tipo,
+			observacao: consulta.observacao,
+		});
+	}
+
+	private async loadConsulta() {
+		const id = this.activatedRoute.snapshot.paramMap.get('id');
+		if (id) {
+			this.consultaId = parseInt(id);
+			const consulta = await this.ConsultaService.getConsultaById(this.consultaId).toPromise();
+			if (consulta) {
+				this.setFormValues(consulta);
+			} else {
+				console.error(`Consulta com ID ${this.consultaId} não encontrada.`);
+			}
+		}
+	}
 
    ngOnInit() {
+		this.loadConsulta();
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id) {
       this.consultaId = parseInt(id);
-      this.ConsultaService.getMedico(this.consultaId).subscribe((consulta) => {
-        this.consultasForm = this.createForm(consulta);
-      });
     }
-    this.carregaMedicos()
-    this.carregaPacientes()
+    this.carregaMedicos();
+    this.carregaPacientes();
   }
 
   private createForm(consulta ? : ConsultaInterface) {

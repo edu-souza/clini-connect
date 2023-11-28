@@ -42,7 +42,7 @@
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
-          <ion-datetime id="datetime" color="primary" formControlName="data" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+          <ion-datetime id="datetime" color="dark" formControlName="data" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
         </ng-template>
       </ion-modal>
       <ion-text color="danger" *ngIf="data?.invalid && (data?.dirty || data?.touched)">

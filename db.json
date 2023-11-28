@@ -9,11 +9,11 @@
       "id": 1
     },
     {
-      "nome": "Cintia",
-      "endereco": "Sanga da Toca",
-      "dataNascto": "2023-11-27T00:40:33.011Z",
-      "cidade": "banana",
-      "sexo": "F",
+      "nome": "Paciente 2",
+      "endereco": "asrarwawrawr",
+      "dataNascto": "2023-11-28T01:19:14.288Z",
+      "cidade": "apple",
+      "sexo": "M",
       "id": 2
     }
   ],
@@ -38,20 +38,19 @@
   "consultas": [
     {
       "medico": {
-        "id": 1,
-        "nome": "Manual da Costa Gomes",
-        "email": "manualgomes@mail.com",
-        "telefone": "6752986758923",
-        "endereco": "Rua Sete de Setembro",
-        "especialidade": "Cirurgião dentista",
-        "crm": "141515"
+        "nome": "awrfarawe",
+        "dataAdmissao": "2023-11-07T00:01:00",
+        "crm": "rawrawrawrawr",
+        "turno": "D",
+        "especialidade": "Pediatria",
+        "id": 2
       },
       "paciente": {
-        "nome": "Cintia",
-        "endereco": "Sanga da Toca",
-        "dataNascto": "2023-11-27T00:40:33.011Z",
-        "cidade": "banana",
-        "sexo": "F",
+        "nome": "Paciente 2",
+        "endereco": "asrarwawrawr",
+        "dataNascto": "2023-11-28T01:19:14.288Z",
+        "cidade": "apple",
+        "sexo": "M",
         "id": 2
       },
       "data": "2023-11-30T00:41:00",
