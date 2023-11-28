@@ -58,9 +58,9 @@
 
     <ion-item>
       <ion-select formControlName="especialidade" label="Especialidade" placeholder="Selecione uma especialidade">
-        <ion-select-option value="C">Cardiologia</ion-select-option>
-        <ion-select-option value="O">Ortopedia</ion-select-option>
-        <ion-select-option value="P">Pediatria</ion-select-option>
+        <ion-select-option value="Cardiologia">Cardiologia</ion-select-option>
+        <ion-select-option value="Ortopedia">Ortopedia</ion-select-option>
+        <ion-select-option value="Pediatria">Pediatria</ion-select-option>
       </ion-select>
       <ion-text color=" danger" *ngIf="especialidade?.invalid && (especialidade?.dirty || especialidade?.touched)">
         <small *ngIf="especialidade?.errors?.['required']">

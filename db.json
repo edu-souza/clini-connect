@@ -31,8 +31,16 @@
       "dataAdmissao": "2023-11-27T00:59:52.804Z",
       "crm": "141515",
       "turno": "N",
-      "especialidade": "O",
+      "especialidade": "Ortopedia",
       "id": 1
+    },
+    {
+      "nome": "awrfarawe",
+      "dataAdmissao": "2023-11-07T00:01:00",
+      "crm": "rawrawrawrawr",
+      "turno": "D",
+      "especialidade": "Pediatria",
+      "id": 2
     }
   ],
   "consultas": [

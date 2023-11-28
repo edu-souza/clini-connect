@@ -1,4 +1,3 @@
-import { especialidadeEnum } from "./especialidade.enum";
 
 export interface MedicoInterface {
   id: number;
@@ -6,5 +5,5 @@ export interface MedicoInterface {
   dataAdmissao: Date;
   turno: string;
   crm: string;
-  especialidade: especialidadeEnum;
+  especialidade: string;
 }
