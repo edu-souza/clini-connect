@@ -33,6 +33,7 @@ export class PacientesCadastroComponent  implements OnInit {
     }
   }
 
+  //Validators com a quantidade de caracteres minimos e máximos do campo
   private createForm(paciente ? : PacienteInterface) {
     return new FormGroup({
       nome: new FormControl(paciente ?.nome || '', [
