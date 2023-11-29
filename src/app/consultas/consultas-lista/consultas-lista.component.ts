@@ -27,10 +27,6 @@ export class ConsultasListaComponent  implements OnInit {
     private datePipe: DatePipe
   ) { }
 
-  ionViewWillEnter() {
-    this.listaConsultas();
-  }
-
   ngOnInit() {
     this.listaConsultas()
   }

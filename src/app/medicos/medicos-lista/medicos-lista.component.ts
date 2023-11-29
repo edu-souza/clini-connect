@@ -26,11 +26,6 @@ export class MedicosListaComponent  implements OnInit {
     private datePipe: DatePipe
   ) { }
 
-  ionViewWillEnter() {
-    this.listaMedicos();
-    console.log('ionViewWillEnter');
-  }
-
   ngOnInit() {
     this.listaMedicos()
   }

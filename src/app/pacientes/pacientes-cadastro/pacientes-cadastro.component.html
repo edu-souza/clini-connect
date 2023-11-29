@@ -68,9 +68,9 @@
     <ion-item>
 
       <ion-select formControlName="cidade" label="Cidade" placeholder="Selecione uma cidade">
-        <ion-select-option value="apple">Criciúma</ion-select-option>
-        <ion-select-option value="banana">Araranguá</ion-select-option>
-        <ion-select-option value="orange">Siderópolis</ion-select-option>
+        <ion-select-option value="Criciuma">Criciúma</ion-select-option>
+        <ion-select-option value="Ararangua">Araranguá</ion-select-option>
+        <ion-select-option value="Sideropolis">Siderópolis</ion-select-option>
       </ion-select>
       <ion-text color="danger" *ngIf="cidade?.invalid && (cidade?.dirty || cidade?.touched)">
         <small *ngIf="cidade?.errors?.['required']">

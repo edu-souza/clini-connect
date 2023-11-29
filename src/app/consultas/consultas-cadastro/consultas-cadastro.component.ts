@@ -51,17 +51,13 @@ export class ConsultasCadastroComponent  implements OnInit {
 			if (consulta) {
 				this.setFormValues(consulta);
 			} else {
-				console.error(`Consulta com ID ${this.consultaId} não encontrada.`);
+				console.error(`Consulta não encontrada.`);
 			}
 		}
 	}
 
    ngOnInit() {
 		this.loadConsulta();
-    const id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (id) {
-      this.consultaId = parseInt(id);
-    }
     this.carregaMedicos();
     this.carregaPacientes();
   }

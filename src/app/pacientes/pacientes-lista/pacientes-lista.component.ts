@@ -21,10 +21,6 @@ export class PacientesListaComponent  implements OnInit {
     private datePipe: DatePipe
   ) { }
 
-  ionViewWillEnter() {
-    this.listaPacientes();
-  }
-
   ngOnInit() {
     this.listaPacientes()
   }

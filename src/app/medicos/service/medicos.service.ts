@@ -19,7 +19,7 @@ export class MedicoService {
   }
 
   excluir(id: number): Observable<Object> {
-    return this.httpClient.delete(`${this.url}/${id}`);
+        return this.httpClient.delete(`${this.url}/${id}`);
   }
 
   getMedico(id: number): Observable<MedicoInterface> {

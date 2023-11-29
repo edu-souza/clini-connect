@@ -1,5 +1,47 @@
 {
-  "pacientes": [],
-  "medicos": [],
-  "consultas": []
+  "pacientes": [
+    {
+      "nome": "Cintia",
+      "endereco": "Sanga da Toca",
+      "dataNascto": "2023-11-29T15:47:34.999Z",
+      "cidade": "Ararangua",
+      "sexo": "F",
+      "id": 1
+    }
+  ],
+  "medicos": [
+    {
+      "nome": "Dr Ana Bernardes",
+      "dataAdmissao": "2023-11-29T15:47:59.953Z",
+      "crm": "1212121",
+      "turno": "D",
+      "especialidade": "Cardiologia",
+      "id": 1
+    }
+  ],
+  "consultas": [
+    {
+      "medico": {
+        "nome": "Dr Ana Bernardes",
+        "dataAdmissao": "2023-11-29T15:47:59.953Z",
+        "crm": "1212121",
+        "turno": "D",
+        "especialidade": "Cardiologia",
+        "id": 1
+      },
+      "paciente": {
+        "nome": "Cintia",
+        "endereco": "Sanga da Toca",
+        "dataNascto": "2023-11-29T15:47:34.999Z",
+        "cidade": "Ararangua",
+        "sexo": "F",
+        "id": 1
+      },
+      "data": "2023-11-08T15:48:00",
+      "hora": "2023-11-29T16:48:00",
+      "tipo": "C",
+      "observacao": "fwfw",
+      "id": 1
+    }
+  ]
 }
