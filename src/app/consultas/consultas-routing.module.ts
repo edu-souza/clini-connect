@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConsultasListaComponent } from './consultas-lista/consultas-lista.component';
 import { ConsultasCadastroComponent } from './consultas-cadastro/consultas-cadastro.component';
 
+// Rotas das consultas
 const routes: Routes = [
   {
     path: 'listaconsultas',

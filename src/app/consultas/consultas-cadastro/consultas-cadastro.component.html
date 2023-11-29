@@ -11,6 +11,10 @@
     </ion-fab-button>
   </ion-fab>
 </ion-header>
+
+<!--
+  Inicio do forms
+-->
 <ion-content>
   <form [formGroup]="consultasForm">
     <ion-item>
@@ -24,10 +28,16 @@
       </ion-text>
     </ion-item>
 
+    <!--
+      Campo de busca dos médicos cadastrados no JSON serve
+    -->
     <ion-item>
       <ion-select formControlName="medico" label="Médico" placeholder="Selecione o médico">
         <ion-select-option *ngFor="let medico of medicos" [value]="medico.id">{{ medico.nome }}</ion-select-option>
       </ion-select>
+      <!--
+        Obrigatoriedade do médico no cadastro de consulta
+      -->
       <ion-text color=" danger" *ngIf="medico?.invalid && (medico?.dirty || medico?.touched)">
         <small *ngIf="medico?.errors?.['required']">
           É obrigatório escolher um médico
@@ -38,11 +48,14 @@
     <ion-item>
       <ion-label position="floating">Data da consulta:</ion-label>
 
+      <!--
+        Utilização do componente de calendário do Ionic
+      -->
       <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
-          <ion-datetime id="datetime" color="dark" formControlName="data" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+          <ion-datetime id="datetime" color="primary" formControlName="data" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
         </ng-template>
       </ion-modal>
       <ion-text color="danger" *ngIf="data?.invalid && (data?.dirty || data?.touched)">
@@ -69,6 +82,9 @@
       </ion-text>
     </ion-item>
 
+    <!--
+      Listagem dos tipos de consulta no cadastro de consulta
+    -->
     <ion-list>
       <ion-list-header>
         <ion-label>Tipo</ion-label>
@@ -87,6 +103,9 @@
       <ion-input label="Observação" formControlName="observacao" type="text"> </ion-input>
     </ion-item>
 
+    <!--
+      Componente ionic button com a funcionalidade de salvar a consulta cadastrada no json serve
+    -->
     <ion-fab vertical="bottom" horizontal="end">
       <ion-fab-button (click)="salvar()" [disabled]="!consultasForm.valid">
         <ion-icon name="checkmark-outline"></ion-icon>

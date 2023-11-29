@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
+// Rotas utilizadas para as tabs (Médico, Consultas e Pacientes)
 const routes: Routes = [
   {
     path: 'tabs',

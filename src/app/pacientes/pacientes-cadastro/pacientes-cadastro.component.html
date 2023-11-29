@@ -12,6 +12,9 @@
   </ion-fab>
 </ion-header>
 <ion-content>
+  <!--
+    Campos do forms do paciente com as validações de caracteres e obrigatoriedade
+  -->
   <form [formGroup]="pacientesForm">
     <ion-item>
       <ion-input label="Nome" formControlName="nome" type="text"> </ion-input>
@@ -56,7 +59,7 @@
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
-          <ion-datetime id="datetime" formControlName="dataNascto" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
+          <ion-datetime id="datetime" color="primary" formControlName="dataNascto" display-format="DD de MMMM de YYYY" min="1930-01-01" presentation="date" showDefaultButtons="true" doneText="Selecionar" cancelText="Cancelar"></ion-datetime>
         </ng-template>
       </ion-modal>
       <ion-text color="danger" *ngIf="dataNascto?.invalid && (dataNascto?.dirty || dataNascto?.touched)">

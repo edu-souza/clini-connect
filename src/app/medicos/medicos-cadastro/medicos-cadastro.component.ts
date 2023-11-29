@@ -34,6 +34,7 @@ export class MedicosCadastroComponent  implements OnInit {
     }
   }
 
+  // Cria o forms para cadastro do médico com as validações necessárias
   private createForm(medico ? : MedicoInterface) {
     return new FormGroup({
       nome: new FormControl(medico ?.nome || '', [
@@ -56,6 +57,7 @@ export class MedicosCadastroComponent  implements OnInit {
     });
   }
 
+  // Método para salvar as informações do cadastro do médico
   salvar() {
     const medico: MedicoInterface = {
       ...this.medicosForm.value,

@@ -21,6 +21,7 @@ export class ConsultasCadastroComponent  implements OnInit {
   medicos: MedicoInterface[] = [];
   pacientes: PacienteInterface[] = [];
 
+
 	constructor(
     private toastController: ToastController,
     private activatedRoute: ActivatedRoute,
@@ -43,6 +44,7 @@ export class ConsultasCadastroComponent  implements OnInit {
 		});
 	}
 
+  // Carrega a consulta conforme o ID. Caso a consulta não exista, é retornado a mensagem de não existencia
 	private async loadConsulta() {
 		const id = this.activatedRoute.snapshot.paramMap.get('id');
 		if (id) {
@@ -66,6 +68,7 @@ export class ConsultasCadastroComponent  implements OnInit {
     this.carregaPacientes();
   }
 
+  // Cria o forms e os valores que precisam ser adicionados no cadastro da consulta, sendo o médico, paciente e tipo obrigatórios 
   private createForm(consulta ? : ConsultaInterface) {
     return new FormGroup({
       medico: new FormControl(consulta?.medico || '', [
@@ -88,6 +91,7 @@ export class ConsultasCadastroComponent  implements OnInit {
     });
   }
 
+  // Salva as informações adicionada ao salvar o forms  
   async salvar() {
     const medicoId = this.consultasForm.value.medico;
     const pacienteId = this.consultasForm.value.paciente;
@@ -120,6 +124,7 @@ export class ConsultasCadastroComponent  implements OnInit {
     );
   }
 
+  // Carrega os médicos cadastrados
   carregaMedicos() {
     const observable = this.MedicoService.getMedicos();
     observable.subscribe(
@@ -140,6 +145,7 @@ export class ConsultasCadastroComponent  implements OnInit {
     );
   }
 
+  // Carrega os pacientes cadastrados
   carregaPacientes() {
     const observable = this.PacienteService.getPacientes();
     observable.subscribe(
